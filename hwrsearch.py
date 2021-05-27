@@ -14,7 +14,7 @@ def get_key(val,dic):
 			return key
 
 def hfilter(s):
-	return re.sub(u'[^ \.\,\?\!\u3130-\u318f\uac00-\ud7a3]+','',s)
+	return re.sub(u'[^a-zA-Z]+',' ',s)
 
 def make_index(es, index_name):
 	if es.indices.exists(index=index_name):
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 #               수정한부분 
 	p={}
 	for list1 in lists:
-		text = list1.get_text()
+		text = hfilter(list1.get_text())
 		arr = text.split()
 		print (arr)
 		
